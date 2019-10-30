@@ -1,0 +1,21 @@
+<div align="center" class="container mt-3">
+	<div class="row justify-content-center">
+		<div class="col-12 col-sm-10 col-md-8 col-lg-6">
+			<form id="teste" class="bg-light p-4 calculadora">
+				<div>
+					<input value ="{{display}}" class="form-control text-right" disabled placeholder="0">
+        </div>
+        <div>
+              <button *ngFor = "let item of teclas | slice:0:16" (click)= 'addDigito(item)' class = 'btn' [class.btn-secondary]="isNumber(item)" [class.btn-danger]="!isNumber (item)" type = 'button'>{{item}}</button>
+            </div>
+            <div>
+              <button style = "width: 120px" (click)= 'ce()' class = "btn btn-info" type = 'reset'>CE</button>
+              <button style = "width: 120px" (click)= 'calcular();' class = "btn btn-success" type = 'calcular'>=</button>
+            </div>
+            <div id = "log" align = "center">
+            <app-log> </app-log>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
